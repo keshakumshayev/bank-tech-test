@@ -9,8 +9,13 @@ describe Account do
 
   it 'can be deposited into' do
     test_account = Account.new()
-
     expect{test_account.deposit(TEST_DEPOSIT)}.to change{test_account.balance}.by(TEST_DEPOSIT)
+  end
+
+  it 'can be withdrawn from' do
+    test_account = Account.new()
+    test_account.deposit(TEST_DEPOSIT)
+    expect{test_account.withdraw(TEST_WITHDRAWAL)}.to change{test_account.balance}.by(-TEST_WITHDRAWAL)
   end
 
 end
