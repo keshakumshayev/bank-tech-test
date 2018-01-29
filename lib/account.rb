@@ -8,7 +8,12 @@ class Account
   end
 
   def deposit(amount)
+    transaction = []
     @balance += amount
+    transaction.push(Time.now.to_s[0...10])
+    transaction.push(amount)
+    transaction.push('')
+    transaction.push(@balance)
   end
 
   def withdraw(amount)
