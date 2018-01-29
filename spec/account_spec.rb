@@ -11,6 +11,7 @@ describe Account do
     before :each do
       @test_account = Account.new()
     end
+
     it 'can be deposited into' do
       expect{@test_account.deposit(TEST_DEPOSIT)}.to change{@test_account.balance}.by(TEST_DEPOSIT)
     end
@@ -26,6 +27,15 @@ describe Account do
   end
 
   describe 'transactions' do
+    before :each do
+      @test_account = Account.new()
+      @test_account.deposit(TEST_DEPOSIT)
+    end
+
+    it 'a deposit increases the transaction count'  do
+      expect{@test_account.deposit(TEST_DEPOSIT)}.to change{@test_account.transactions.length}.by(1)
+    end
+
 
   end
 end
