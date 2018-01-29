@@ -12,4 +12,7 @@ class Account
     raise 'insufficient funds' if @balance < amount
     @balance -= amount
   end
+
 end
+
+# Time.now.to_s[0...10]
